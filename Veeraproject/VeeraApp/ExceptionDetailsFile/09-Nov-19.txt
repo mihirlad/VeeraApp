@@ -1,0 +1,48 @@
+-----------Exception Details on  09-11-2019 13:43:48-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 09-11-2019 13:43:48
+
+Error Line No : e 11183
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Invalid column name 'bill_paid_amt'.
+
+ Error Page Url: http://localhost:1078/Admin/CreditDebitNote.aspx?TRAN_TYPE=A
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  09-11-2019 13:45:42-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 09-11-2019 13:45:42
+
+Error Line No : e 11183
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Invalid column name 'bill_paid_amt'.
+
+ Error Page Url: http://localhost:1078/Admin/CreditDebitNote.aspx?TRAN_TYPE=A
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

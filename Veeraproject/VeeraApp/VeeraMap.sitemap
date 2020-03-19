@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Admin/Dashboard.aspx" title="Dashboard"  description="Dashboard">
+    
+      <siteMapNode title="Company" description="Company">
+        <siteMapNode url="Admin/CompanyMaster.aspx" title="Company Information"  description="Company Information" ></siteMapNode>
+        <siteMapNode url="Admin/BranchMaster.aspx" title="Branch Information" description="Branch Information"></siteMapNode>
+        <siteMapNode url="Admin/UserMaster.aspx" title="User Information" description="User Information"></siteMapNode>
+        <siteMapNode  title="Message Information"  description="Message Information" ></siteMapNode>
+     </siteMapNode>
+    
+     <siteMapNode  title="Accounts"  description="Account" >
+       <siteMapNode title="Master" description="Master">
+         <siteMapNode url="Admin/GroupMaster.aspx" title="Group Master" description="Group Master"></siteMapNode>
+         <siteMapNode title="Marketing Party Master" description="Marketing Party Master"></siteMapNode>
+         <siteMapNode  title="Narrations" description="Narrations"></siteMapNode>
+         <siteMapNode url="Admin/StateMaster.aspx" title="State Master" description="State Master"></siteMapNode>
+         <siteMapNode url="Admin/PlaceMaster.aspx" title="Place Master" description="Place Master"></siteMapNode>
+         <siteMapNode url="Admin/RouteMaster.aspx" title="Route Master" description="Route Master"></siteMapNode>
+         <siteMapNode  title="Party Grade Master" description="Party Grade Master"></siteMapNode>
+         <siteMapNode url="Admin/PartyContactDetails.aspx" title="Party Contact Details" description="Party Contact Details"></siteMapNode>
+      </siteMapNode>
+        <siteMapNode url="Admin/Accounts-OpeningBalance.aspx" title="Opening Balance" description="Opening Balance"></siteMapNode>   
+        <siteMapNode  title="Cash Book" description="Cash Book"></siteMapNode>
+        <siteMapNode  title="Bank Book" description="Bank Book"></siteMapNode>
+        <siteMapNode  title="Journal" description="Journal"></siteMapNode>
+        <siteMapNode  title="Bank Reconciliation" description="Bank Reconciliation"></siteMapNode>
+        <siteMapNode  title="Credit Note" description="Credit Note"></siteMapNode>
+        <siteMapNode  title="Debit Note" description="Debit Note"></siteMapNode>
+      </siteMapNode>
+
+    <siteMapNode  title="Inventory"  description="Account" >
+      <siteMapNode title="Master" description="Master">
+         <siteMapNode title="Raw Material Type Master" description="Raw Material Type Master"> </siteMapNode>
+         <siteMapNode   url="Admin/ChargesMaster.aspx" title="Charges Master" description="Charges Master"></siteMapNode>
+         <siteMapNode   url="Admin/PersonMaster.aspx" title="Broker Master" description="Broker Master"></siteMapNode>
+         <siteMapNode   url="Admin/TransportMaster.aspx" title="Transport Master" description="Transport Master"></siteMapNode>
+         <siteMapNode title="Production Formula Master" description="Production Formula Master"></siteMapNode>
+         <siteMapNode title="Invoice Type Master" description="Invoice Type Master"></siteMapNode>
+        <siteMapNode   url="Admin/ServiceTaxMaster.aspx" title="Service Tax Master" description="Service Tax Master"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Stock Master" description="Master">
+        <siteMapNode  title="Setup Master" description="Setup Master">
+          <siteMapNode   url="Admin/HSNCodeMaster.aspx" title="HSN Code Master" description="HSN Code Master"></siteMapNode>
+          <siteMapNode   url="Admin/UOM Master.aspx" title="UOM Master" description="UOM Master"></siteMapNode>
+          <siteMapNode   url="Admin/StockCategoryMaster.aspx" title="Stock Category Master" description="Stock Category Master"></siteMapNode>
+        </siteMapNode>
+       <siteMapNode   url="Admin/StockMaster.aspx" title="Stock Master" description="Stock Master"></siteMapNode>
+        <siteMapNode   url="Admin/StockOpeningBalance.aspx" title="Stock Opening Balance" description="Stock Opening Balance"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,477 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="VeeraApp.Admin.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>VEERA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
+    <!-- bootstrap-css -->
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <!-- //bootstrap-css -->
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font CSS -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="../css/font.css" type="text/css" />
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <!-- //font-awesome icons -->
+    <script src="../js/jquery2.0.3.min.js"></script>
+    <script src="../js/modernizr.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/screenfull.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <link type="text/css" href="../css/newstyle.css" rel="stylesheet" />
+    <%--  <script src="../js/modernizr.custom.js"></script>--%>
+
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+        });
+    </script>
+    <style type="text/css">
+        .srcbox{
+            background:pink;
+            color:black;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="dashboard-page main_container">
+    <form id="form1" runat="server">
+        <%--    <nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="Dashboard.aspx">
+                        <i class="fa fa-home nav_icon"></i>
+                        <span class="nav-text">Dashboard
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <span class="nav-text">Master
+                        </span>
+                        <i class="icon-angle-right"></i><i class="icon-angle-down"></i>
+                    </a>
+                    <ul style="overflow:scroll; height:500px">
+                        <li>
+                            <a class="subnav-text" href="CompanyMaster.aspx">Company Master
+                            </a>
+                        </li>
+                        <li>
+                            <a class="subnav-text" href="BranchMaster.aspx">Branch Master
+                            </a>
+                        </li>
+                        <li>
+                            <a class="subnav-text" href="GroupMaster.aspx">Account Group Master
+                            </a>
+                        </li>
+                        <li>
+                            <a class="subnav-text" href="UserMaster.aspx">User Master
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="subnav-text" href="AccountMaster.aspx">Accounts Master</a>
+                         </li>        
+
+                         <li>
+                            <a class="subnav-text" href="Accounts-OpeningBalance.aspx">Accounts-Opening Balance</a>
+                         </li> 
+
+                        <li>
+                            <a class="subnav-text" href="PartyContactDetails.aspx">Party Contact Details</a>
+                         </li>        
+
+                         <li>
+                            <a class="subnav-text" href="PersonMaster.aspx">Person Master</a>
+                         </li>        
+                        <li>
+                            <a class="subnav-text" href="StateMaster.aspx">State Master</a>
+                         </li>     
+                          <li>
+                            <a class="subnav-text" href="PlaceMaster.aspx">Place Master</a>
+                         </li>        
+   
+                          <li>
+                            <a class="subnav-text" href="RouteMaster.aspx">Route Master</a>
+                         </li>   
+                         <li>
+                            <a class="subnav-text" href="TransportMaster.aspx">Transport Master</a>
+                         </li>   
+                          <li>
+                            <a class="subnav-text" href="MenuMaster.aspx">Menu Master</a>
+                         </li>   
+                        <li>
+                            <a class="subnav-text" href="ChargesMaster.aspx">Charges Master</a>
+                         </li> 
+                         <li>
+                            <a class="subnav-text" href="User_Rights_Access.aspx">User Rights</a>
+                         </li>
+                         <li>
+                            <a class="subnav-text" href="Menu_Rights.aspx">Menu Rights</a>
+                         </li> 
+                       
+
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="logout">
+                <li>
+                    <a href="login.html">
+                        <i class="icon-off nav-icon"></i>
+                        <span class="nav-text">Logout
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        --%>
+
+
+        <section class="wrapper scrollable">
+            <nav class="user-menu">
+                <a href="javascript:;" class="main-menu-access">
+                    <i class="icon-proton-logo"></i>
+                    <i class="icon-reorder"></i>
+                </a>
+            </nav>
+             <div id="dl-menu" class="dl-menuwrapper">
+                           <button onclick="okmenu(event)" class="dl-trigger">Open Menu</button>
+                 </div>
+            <section class="title-bar top_right_bar">
+                <div class="w3l_search adminHeading" >
+                    <asp:Label runat="server" ID="lblheader"></asp:Label>
+                </div>
+                <div class="header-right">
+                    <div class="profile_details_left">
+                        <div class="header-right-left">
+                            <!--notifications of menu start -->
+                            <ul class="nofitications-dropdown">
+                            </ul>
+                        </div>
+
+
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile_img">
+                                            <span class="prfil-img"><i class="fa fa-user" aria-hidden="true" style="height: 30px; width: 30px;"></i></span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu">
+                                        <li>
+                                            <asp:Label CssClass="label fa fa-user" ID="LblUser" runat="server"></asp:Label>
+                                        </li>
+                                        <li><a href="#" id="aUser" runat="server"><i class="fa fa-cog"></i>Settings</a> </li>
+
+                                        <li>
+                                            <asp:LinkButton ID="lnkbtnLogOut" runat="server" OnClick="lnkbtnLogOut_OnClick" class="fa fa-sign-out" CausesValidation="false">Logout</asp:LinkButton>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <%-- jigar 1 --%>
+                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="veeramap" />
+                <div class="clearfix"></div>
+            </section>
+            <div  class="main-grid">
+                <div class="agile-grids">
+                   <div id="menumain" class="column">
+                      <div  class="dl-menuwrapper">
+                          <%-- <button onclick="okmenu()" class="dl-trigger">Open Menu</button>--%>
+                            <ul class="dl-menu">
+                    <asp:Repeater ID="RptMenu" runat="server" OnItemDataBound="RptMenu_OnItemDataBound">
+                        <ItemTemplate>
+                            <asp:HiddenField ID="HfRefCode" runat="server" Value='<%#Eval("CODE") %>' />
+                            <asp:HiddenField ID="HfMENU_NAME" runat="server" Value='<%#Eval("MENU_NAME") %>' />
+                            <li><a href='<%#Eval("MENU_NAME") %>'>
+
+                                <%#Eval("NAME") %>
+
+                            </a>
+
+                                <ul id="ulRptMenu" runat="server" class="dl-submenu">
+                                    <asp:Repeater ID="rptChildMenu" runat="server" OnItemDataBound="rptChildMenu_OnItemDataBound">
+                                        <ItemTemplate>
+                                            <asp:HiddenField ID="HfChildRefCode" runat="server" Value='<%#Eval("CODE") %>' />
+                                            <asp:HiddenField ID="HfMENU_NAME" runat="server" Value='<%#Eval("MENU_NAME") %>' />
+                                            <li><a href="<%#Eval("MENU_NAME") %>">
+                                                <%#Eval("NAME") %>                                           
+                                            </a>
+                                                <ul id="ulrptChildMenu" runat="server" class="dl-submenu">
+
+                                                    <asp:Repeater ID="rptSubChildMenu" runat="server" OnItemDataBound="rptSubChildMenu_OnItemDataBound">
+                                                        <ItemTemplate>
+                                                            <asp:HiddenField ID="HfSubChildRefCode" runat="server" Value='<%#Eval("CODE") %>' />
+                                                            <asp:HiddenField ID="HfMENU_NAME" runat="server" Value='<%#Eval("MENU_NAME") %>' />
+                                                            <li><a href="<%#Eval("MENU_NAME") %>">
+                                                                <%#Eval("NAME") %></a>
+
+                                                                <ul id="ulrptSubChildMenu" runat="server" class="dl-submenu">
+                                                                    <asp:Repeater ID="rptSubChildInnerMenu" runat="server">
+                                                                        <ItemTemplate>
+                                                                            <li><a href="<%#Eval("MENU_NAME") %>">
+                                                                                <%#Eval("NAME") %></a></li>
+                                                                        </ItemTemplate>
+                                                                    </asp:Repeater>
+                                                                </ul>
+
+                                                            </li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+
+
+                                                </ul>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+                       </div>
+            <!-- /dl-menuwrapper -->
+                    </div>
+                    <%-- jigar 2 --%>
+               <div id="content_page" class="content_page">
+                 <div class="sitemap_path">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" SiteMapProvider="veeramap" Font-Names="Verdana" Font-Size="1.0em" CssClass="breadcrumb" PathSeparator=" > ">
+                    <CurrentNodeStyle ForeColor="#333333" />
+                    <NodeStyle Font-Bold="True" ForeColor="#990000" />
+                    <PathSeparatorStyle Font-Bold="True" ForeColor="#990000" />
+                    <RootNodeStyle Font-Bold="True" ForeColor="#FF8000" />
+
+                    </asp:SiteMapPath>
+                 </div>
+                  <div class="contents">
+                       <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                         </asp:ContentPlaceHolder>
+                  </div>   
+               </div>
+                   
+                </div>
+            </div>
+            <%--   <div class="footer">
+                <p>© 2018 . All Rights Reserved . Design by <a href="#">Veera Compressor</a></p>
+            </div>--%>
+            <!-- //footer -->
+        </section>
+
+        <%--     <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+            <div id="sidebar">
+                <div class="sidebar-scroll">
+                    <div class="sidebar-content">
+                        <asp:HiddenField ID="HfLogintype" runat="server" />
+                        <ul class="sidebar-nav">
+                            <li><a href="Screen_Demo.aspx" id="ADashboard" runat="server"><i class="fa fa-dashboard sidebar-nav-icon"></i>Company Information
+                            </a></li>
+                            <li><a href="ComapnyMaster.aspx" id="ABranchMaster" runat="server"><i class="fa fa-chain sidebar-nav-icon"></i>Company Master
+                            </a></li>
+                            <li><a href="Screen2_Demo.aspx" id="A1" runat="server"><i class="fa fa-chain sidebar-nav-icon"></i>Branch Information
+                            </a></li>
+                            <li><a href="Screen3_Demo.aspx" id="A2" runat="server"><i class="fa fa-chain sidebar-nav-icon"></i>User Information
+                            </a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="main-container">
+                <header class="navbar navbar-default">
+                    <ul class="nav navbar-nav-custom">
+                        <li>
+                            <a onclick="App.sidebar('toggle-sidebar');" href="javascript:void(0)">
+                                <i class="fa fa-bars fa-fw" style="line-height: inherit;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav-custom" style="float: right;">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-arrow-circle-down" style="margin: 15px 0 15px 0;"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                                <li>
+                                    <asp:LinkButton ID="btnLogout" Text="Logout" runat="server"
+                                        CausesValidation="false"><i class="fa fa-ban fa-fw pull-right"></i>
+                                Logout</asp:LinkButton>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </header>
+                <div style="min-height: 864px;" id="page-content">
+                    <div class="row">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <footer class="clearfix">
+                    <div class="pull-right">
+                        Website Design and Developed By Mihir Lad
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+        <a href="#" id="to-top"><i class="fa fa-chevron-up"></i></a>--%>
+        <!--[if IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+        <script src="../js/bootstrap.js"></script>
+        <script src="../js/proton.js"></script>
+
+        <%-- <div class="container demo-1">
+
+            <div class="main clearfix">--%>
+       
+        <%-- </div>
+        </div>--%>
+
+        <%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--%>
+        <script src="../js/jquery.dlmenu.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#dl-menu').dlmenu();
+
+            });
+            
+            $("#menumain .dl-menu > li > a").click(function () {
+             
+                $("ul.dl-submenu").removeClass("level1_submenu");
+                $("#menumain .dl-menu > li").removeClass("level1_highlight");
+                $("#menumain .dl-menu > li > a").removeClass("down-arrow");
+                if ($(this).parent("li").has("ul.dl-submenu")) {
+                    
+                     if ($(this).parent("li").children("ul.dl-submenu").is(':visible')){
+                         $(this).parent("li").children("ul.dl-submenu").hide();
+                         $("ul.dl-submenu").hide();
+                         
+                         //$(this).addClass("left-arrow");
+                    }
+                     else {
+                         $("ul.dl-submenu").hide();
+                         $(this).parent("li").children("ul.dl-submenu").show();
+                         $(this).parent("li").addClass("level1_highlight");
+                         $(this).parent("li").children("ul.dl-submenu").addClass("level1_submenu");
+                         $(this).addClass("down-arrow");
+                     }
+                }
+            });
+            $("#menumain .dl-menu > li > .dl-submenu > li > a").click(function () {
+               
+                $("#menumain .dl-menu > li > .dl-submenu > li > a").removeClass("down-arrow");
+                if ($(this).parent("li").has("ul.dl-submenu")) {
+                    if ($(this).parent("li").children("ul.dl-submenu").is(':visible'))
+                    {
+                        $("#menumain .dl-menu > li > .dl-submenu > li > ul.dl-submenu").hide();
+                       // $(this).parent("li").children("ul.dl-submenu").hide();
+                      
+                    }
+                    else
+                    {
+                        $("#menumain .dl-menu > li > .dl-submenu > li > ul.dl-submenu").hide();
+                        $(this).parent("li").children("ul.dl-submenu").show();
+                        $(this).addClass("down-arrow");
+                    }
+                    
+                }
+            });
+            $("#menumain .dl-menu .dl-submenu .dl-submenu > li > a").click(function () {
+
+                $("#menumain .dl-menu .dl-submenu .dl-submenu > li > a").removeClass("down-arrow");
+
+                if ($(this).parent("li").has("ul.dl-submenu")) {
+                    if ($(this).parent("li").children("ul.dl-submenu").is(':visible')) {
+                        $("#menumain .dl-menu .dl-submenu .dl-submenu > li > ul.dl-submenu").hide();
+                    }
+                    else {
+                        $("#menumain .dl-menu .dl-submenu .dl-submenu > li > ul.dl-submenu").hide();
+                        $(this).parent("li").children("ul.dl-submenu").show();
+                        $(this).addClass("down-arrow");
+                    }
+                    
+                }
+            });
+            
+            
+            //$(document).ready(function () {
+            //    alert("123");
+            //    document.getElementById("menumain").style.zIndex = -1;
+            //});
+
+            //function okkmenu() {
+            //    document.getElementById("menumain").style.zIndex = -1;
+            //}
+
+            $(document).click(function () {
+                $("#menumain").removeClass("left_sidemenu");
+                $("#content_page").removeClass("shift_right");
+                $(".dl-menu").removeClass("dl-menuopen");
+                $("ul.dl-submenu").hide();
+                $("#menumain .dl-menuwrapper li a").removeClass("down-arrow");
+            });
+            $("#menumain").click(function (e) {
+                e.stopPropagation();
+            });
+            $(".dl-trigger").on('click', function(e) {
+                //e.preventDefault();
+                e.stopPropagation();
+                
+                document.getElementById("menumain").style.zIndex = 2;
+                if ($("#menumain").hasClass("left_sidemenu")) {
+                    $("#menumain").removeClass("left_sidemenu");
+                    $("#content_page").removeClass("shift_right");
+                    $(".dl-menu").removeClass("dl-menuopen");
+                }
+                else {
+                    $("#menumain").addClass("left_sidemenu");
+                    $("#content_page").addClass("shift_right");
+                    $(".dl-menu").addClass("dl-menuopen");
+                }
+               
+            });
+            // function okmenu(event) {
+            //    // alert("jigar");
+            //    document.getElementById("menumain").style.zIndex = 2;
+            //    if ($("#menumain").hasClass("left_sidemenu")) {
+            //        $("#menumain").removeClass("left_sidemenu");
+            //        $("#content_page").removeClass("shift_right");
+            //        $(".dl-menu").removeClass("dl-menuopen");
+            //    }
+            //    else {
+            //        $("#menumain").addClass("left_sidemenu");
+            //        $("#content_page").addClass("shift_right");
+            //        $(".dl-menu").addClass("dl-menuopen");
+            //    }
+            //    event.stopPropagation();
+            //}
+            
+		</script>
+    </form>
+</body>
+</html>
